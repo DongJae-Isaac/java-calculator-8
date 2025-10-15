@@ -13,4 +13,14 @@ public class SeparatorHandler {
         return splitBySeparator(input);
     }
 
+    private void extractCustomSeparator(String input) {
+        // "//"로 시작해서 "\n" 사이에 있는 customSeparator 추출
+        int start = 2;
+        int end = input.indexOf("\\n");
+
+        if (end == -1) {
+            throw new IllegalArgumentException("잘못된 형식입니다.");
+        }
+        customSeparator = input.substring(start, end);
+    }
 }
