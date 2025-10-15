@@ -23,4 +23,9 @@ public class SeparatorHandler {
         }
         customSeparator = input.substring(start, end);
     }
+
+    private String removeCustomSeparator(String input){
+        // \n 다음에 있는 문자열만 추출
+        return input.substring(input.indexOf("\\n") + 2);
+    }
 }
