@@ -28,4 +28,12 @@ public class SeparatorHandler {
         // \n 다음에 있는 문자열만 추출
         return input.substring(input.indexOf("\\n") + 2);
     }
+
+    private String[] splitBySeparator(String input) {
+        // 기본 구분자와 커스텀 구분자로 문자열 처리
+        String regex = "[,:" + customSeparator + "]";
+        String[] filteredNumber = input.split(regex);
+
+        return filteredNumber;
+    }
 }
