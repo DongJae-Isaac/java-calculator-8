@@ -15,13 +15,15 @@ public class Application {
             SeparatorHandler separatorHandler = new SeparatorHandler();
             String[] splitString = separatorHandler.splitInputValue(input);
 
-            //출력 확인 테스트
-        for (String splitStr : splitString) {
-            System.out.println(splitStr);
-        }
-//            CalculateHandler calculateHandler = new CalculateHandler();
-            // 구분 된 문자열 숫자로 변환
-
+            // 문자열 출력 확인 테스트
+//            for (String splitStr : splitString) {
+//                System.out.println(splitStr);
+//            }
+            CalculateHandler calculateHandler = new CalculateHandler();
+            int[] parsedArr = calculateHandler.parseToInt(splitString);
+            for (int i : parsedArr) {
+                System.out.println(i);
+            }
 
 //            ResultPrinter resultPrinter = new ResultPrinter();
             // 최종 결과 출력 위한 숫자 전달
