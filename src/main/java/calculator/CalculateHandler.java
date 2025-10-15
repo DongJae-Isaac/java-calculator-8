@@ -2,12 +2,12 @@ package calculator;
 
 public class CalculateHandler {
     public int[] parseToInt(String[] input) {
-        int[] NumArray = new int[input.length];
+        int[] numArray = new int[input.length];
 
         for(int i=0; i < input.length; i++) {
-            NumArray[i] = Integer.parseInt(input[i]);
+            numArray[i] = Integer.parseInt(input[i]);
         }
 
-        return NumArray;
+        return numArray;
     }
 }
