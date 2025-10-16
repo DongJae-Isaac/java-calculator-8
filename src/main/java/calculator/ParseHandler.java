@@ -1,6 +1,6 @@
 package calculator;
 
-public class CalculateHandler {
+public class ParseHandler {
     public int[] parseToInt(String[] input) {
         int[] numArray = new int[input.length];
 
