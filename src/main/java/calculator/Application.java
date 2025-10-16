@@ -19,8 +19,8 @@ public class Application {
 //            for (String splitStr : splitString) {
 //                System.out.println(splitStr);
 //            }
-            CalculateHandler calculateHandler = new CalculateHandler();
-            int[] parsedArr = calculateHandler.parseToInt(splitString);
+            ParseHandler parseHandler = new ParseHandler();
+            int[] parsedArr = parseHandler.parseToInt(splitString);
             for (int i : parsedArr) {
                 System.out.println(i);
             }
