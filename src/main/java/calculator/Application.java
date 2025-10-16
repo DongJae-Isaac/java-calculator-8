@@ -21,12 +21,13 @@ public class Application {
 //            }
             ParseHandler parseHandler = new ParseHandler();
             int[] parsedArr = parseHandler.parseToInt(splitString);
-            for (int i : parsedArr) {
-                System.out.println(i);
-            }
+            // 숫자 배열 출력 확인
+//            for (int i : parsedArr) {
+//                System.out.println(i);
+//            }
 
-//            ResultPrinter resultPrinter = new ResultPrinter();
-            // 최종 결과 출력 위한 숫자 전달
+            CalculateHandler calculateHandler = new CalculateHandler();
+            int result = calculateHandler.getSum(parsedArr);
 
 
         }
