@@ -29,7 +29,8 @@ public class Application {
             CalculateHandler calculateHandler = new CalculateHandler();
             int result = calculateHandler.getSum(parsedArr);
 
-
+            ResultPrinter resultPrinter = new ResultPrinter();
+            resultPrinter.printer(result);
         }
     }
 }
