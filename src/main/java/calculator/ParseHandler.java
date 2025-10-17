@@ -21,9 +21,16 @@ public class ParseHandler {
     private int convertToInt(String str){
         try {
             int num = Integer.parseInt(str);
+            checkPositive(num);
             return num;
         } catch (NumberFormatException e){
             throw new IllegalArgumentException("숫자가 아닙니다.");
+        }
+    }
+
+    private void checkPositive(int num){
+        if(num < 0) {
+            throw new IllegalArgumentException("음수는 입력할 수 없습니다");
         }
     }
 }
