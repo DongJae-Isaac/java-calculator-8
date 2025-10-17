@@ -11,6 +11,7 @@ public class ParseHandler {
         int[] numArray = new int[input.length];
 
         for (int i = 0; i < input.length; i++) {
+            checkBlank(input[i]);
             numArray[i] = convertToInt(input[i]);
         }
 
@@ -31,6 +32,12 @@ public class ParseHandler {
     private void checkPositive(int num){
         if(num < 0) {
             throw new IllegalArgumentException("음수는 입력할 수 없습니다");
+        }
+    }
+
+    private void checkBlank(String str) {
+        if(str.isBlank()){
+            throw new IllegalArgumentException("공백은 입력할 수 없습니다");
         }
     }
 }
