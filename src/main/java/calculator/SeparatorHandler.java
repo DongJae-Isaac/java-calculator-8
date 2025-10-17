@@ -8,9 +8,9 @@ public class SeparatorHandler {
      * @param input 사용자 입력 문자열
      * @return 분리된 문자열 배열
      */
-    public String[] splitInputValue(String input){
+    public String[] splitInputValue(String input) {
         // 만약 custom Separator를 추출해야 하는 상황이라면
-        if(!input.startsWith("//")){
+        if (!input.startsWith("//")) {
             return splitBySeparator(input);
         }
         extractCustomSeparator(input);
@@ -26,10 +26,12 @@ public class SeparatorHandler {
         if (end == -1) {
             throw new IllegalArgumentException("잘못된 형식입니다.");
         }
+
         customSeparator = input.substring(start, end);
+
     }
 
-    private String removeCustomSeparator(String input){
+    private String removeCustomSeparator(String input) {
         // \n 다음에 있는 문자열만 추출
         return input.substring(input.indexOf("\\n") + 2);
     }
@@ -37,6 +39,13 @@ public class SeparatorHandler {
     private String[] splitBySeparator(String input) {
         // 기본 구분자와 커스텀 구분자로 문자열 처리
         String regex = "[,:" + customSeparator + "]";
+
+        if(input.startsWith(",") || input.startsWith(":")){
+            throw new IllegalArgumentException("기본 구분자로 시작할 수 없습니다.");
+        }
+        if(!customSeparator.isEmpty() && input.startsWith(customSeparator)){
+            throw new IllegalArgumentException("커스텀 구분자로 시작할 수 없습니다.");
+        }
         String[] filteredNumber = input.split(regex);
 
         return filteredNumber;
