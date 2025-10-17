@@ -40,14 +40,23 @@ public class SeparatorHandler {
         // 기본 구분자와 커스텀 구분자로 문자열 처리
         String regex = "[,:" + customSeparator + "]";
 
-        if(input.startsWith(",") || input.startsWith(":")){
-            throw new IllegalArgumentException("기본 구분자로 시작할 수 없습니다.");
-        }
-        if(!customSeparator.isEmpty() && input.startsWith(customSeparator)){
-            throw new IllegalArgumentException("커스텀 구분자로 시작할 수 없습니다.");
-        }
+        validateBasicSeparatorStart(input);
+        validateCustomSeparatorStart(input);
+
         String[] filteredNumber = input.split(regex);
 
         return filteredNumber;
+    }
+
+    private void validateBasicSeparatorStart(String input){
+        if(input.startsWith(",") || input.startsWith(":")){
+            throw new IllegalArgumentException("기본 구분자로 시작할 수 없습니다.");
+        }
+    }
+
+    private void validateCustomSeparatorStart(String input){
+        if(!customSeparator.isEmpty() && input.startsWith(customSeparator)){
+            throw new IllegalArgumentException("커스텀 구분자로 시작할 수 없습니다.");
+        }
     }
 }
